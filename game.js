@@ -60,24 +60,23 @@ window.addEventListener('pointerdown',()=>
             combos.innerText=`COMBO\n${results[6]}`;
         }
     }
-});
-
-ready.addEventListener('click',async()=>{
-    if(!loading)
+    else if(!loading)
     {
         loading=true;
         ready.style.opacity='1';
         ready.style.opacity='0';
         // 確保解鎖瀏覽器的自動播放限制
         if (audio.ctx.state === 'suspended') {
-            await audio.ctx.resume();
+            audio.ctx.resume().then(()=>
+            {
+                audio.playBGM(); // 播放音樂
+                gaming=true;
+                console.log("loading");
+                requestAnimationFrame(game);
+            })
         }
-        audio.playBGM(); // 播放音樂
-        gaming=true;
-        console.log("loading");
-        requestAnimationFrame(game);
     }
-})
+});
 
 while(Math.abs(ptr_pre*speed*240/bpm/beat)<=315)
     {
