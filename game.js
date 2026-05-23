@@ -65,16 +65,14 @@ window.addEventListener('pointerdown',()=>
         loading=true;
         ready.style.opacity='1';
         ready.style.opacity='0';
+        console.log("loading");
         // 確保解鎖瀏覽器的自動播放限制
-        if (audio.ctx.state === 'suspended') {
-            audio.ctx.resume().then(()=>
-            {
-                audio.playBGM(); // 播放音樂
-                gaming=true;
-                console.log("loading");
-                requestAnimationFrame(game);
-            })
-        }
+        audio.ctx.resume().then(()=>
+        {
+            audio.playBGM(); // 播放音樂
+            gaming=true;
+            requestAnimationFrame(game);
+        })
     }
 });
 
@@ -86,6 +84,7 @@ while(Math.abs(ptr_pre*speed*240/bpm/beat)<=315)
 
 function game()
 {
+    console.log(audio);
     // time=(Date.now()-start_time)/1000;
     time = audio.getCurrentTime()-offset;
     run_pin(bpm,time,speed);
