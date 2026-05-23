@@ -60,7 +60,11 @@ window.addEventListener('pointerdown',()=>
             combos.innerText=`COMBO\n${results[6]}`;
         }
     }
-    else if(!loading)
+});
+
+ready.addEventListener('click',()=>
+{
+    if(!loading)
     {
         loading=true;
         ready.style.opacity='1';
@@ -74,7 +78,7 @@ window.addEventListener('pointerdown',()=>
             requestAnimationFrame(game);
         })
     }
-});
+})
 
 while(Math.abs(ptr_pre*speed*240/bpm/beat)<=315)
     {
