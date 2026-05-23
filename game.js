@@ -79,6 +79,23 @@ window.addEventListener('click',async()=>{
     }
 })
 
+window.addEventListener('touchend',async()=>{
+    if(!loading)
+    {
+        loading=true;
+        ready.style.opacity='1';
+        ready.style.opacity='0';
+        // 確保解鎖瀏覽器的自動播放限制
+        if (audio.ctx.state === 'suspended') {
+            await audio.ctx.resume();
+        }
+        audio.playBGM(); // 播放音樂
+        gaming=true;
+        console.log("loading");
+        requestAnimationFrame(game);
+    }
+})
+
 
 while(Math.abs(ptr_pre*speed*240/bpm/beat)<=315)
     {
