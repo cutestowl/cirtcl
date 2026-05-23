@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image/icon.png" type="image/png">
+    <title>cirtɔl</title>
+</head>
+<body>
+    <div id="setting" style="display:flex">
+        <p>SETTINGS : </p>
+        <input id="offset" type="number" placeholder="offset(ms)" min="-500" max="500" style="margin:10px; width:15vw">
+        <a href="about.html" style="position:absolute;right:10vw;margin:10px">about</a>
+        <a href="story.html" style="position:absolute;right:5vw;margin:10px">story</a>
+    </div>
+    <div style="position:absolute;top:20vh;left:5vw;height:auto;width:80vw;padding:5vw;border:black solid 1vh;border-radius:5vh;">
+        <div style="display:flex">
+            <p>Canon in D Major by Kevin MacLeod</p><button id="Canon_in_D_Major_medium" style="margin:10px">MEDIUM</button>
+        </div>
+    </div>
+    <script>
+        const Canon_in_D_Major_medium=document.querySelector('#Canon_in_D_Major_medium');
+        Canon_in_D_Major_medium.addEventListener('click',()=>{
+            window.location.href=`game.html?offset=${document.getElementById('offset').value/1000}`;
+        })
+        const offset=document.querySelector('#offset');
+        offset.addEventListener('input',()=>{
+            let val=offset.value;
+            if(val>500)offset.value=500;
+            if(val<-500)offset.value=-500;
+        })
+    </script>
+</body>
+</html>
