@@ -3,11 +3,15 @@ function general_ready(unit)
     const screen=document.querySelector('#screen');
 
     const ready=document.createElement('button');
+    ready.style.backgroundColor="rgba(0, 0, 0, 0)"
     ready.style.color="rgb(100,100,100)";
     ready.style.position="absolute";
     ready.style.top="50%";
     ready.style.left="50%";
     ready.id="ready";
+    ready.style.height="97vh";
+    ready.style.width="97vw";
+    ready.style.border="rgba(0,0,0,0) solid 0px";
     ready.style.fontSize=`${5*unit}px`;
     ready.style.transform="translate(-50%,-50%)";
     ready.innerText="READY\nCLICK TO START";

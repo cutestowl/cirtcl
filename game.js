@@ -108,9 +108,13 @@ function game()
     if(gaming&&chart[ptr_end]==-1)
     {
         gaming=false;
-        remove_game();
-        console.log(results);
-        general_result(score,results);
+        general_preresult(unit,score,results,note_number);
+        setTimeout(()=>
+        {
+            remove_game();
+            console.log(results);
+            general_result(score,results);
+        },3000);    
     }
     if(ptr_end<=(time+0.3)*bpm*beat/240)ptr_end+=1;
     requestAnimationFrame(game);

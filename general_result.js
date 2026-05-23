@@ -21,8 +21,18 @@ function general_result(score,results)
     screen.appendChild(title);
 
     const content=document.createElement('pre');
+    let rating;
+    if(score==1050000)rating="SSS";
+    else if(score>=1030000)reating="SS";
+    else if(score>=1000000)rating="S";
+    else if(score>=950000)rating="A";
+    else if(score>=880000)rating="B";
+    else if(score>=700000)rating="C";
+    else rating="F";
     content.innerText=
 `     s c o r e     : ${Math.round(score)}
+
+  r  a  t  i  n  g : ${rating}
 
   m a x  c o m b o : ${results[7]}
 
@@ -45,7 +55,7 @@ function general_result(score,results)
       l a t e      : ${results[5]}`
 
     content.style.position="absolute";
-    content.style.top="15vh";
+    content.style.top="12vh";
     content.style.fontSize="2.5vh";
     content.style.border="0.3vh solid black";
     content.style.padding="5vh 3vh 3vh 3vh";
@@ -55,11 +65,10 @@ function general_result(score,results)
     screen.appendChild(content);
 
     const conti=document.createElement('button');
-    // conti.style.border='black solid 0.5vh';
     conti.style.position="absolute";
     conti.style.height="5vh";
     conti.style.width="15vh";
-    conti.style.top="90vh";
+    conti.style.top="92vh";
     conti.innerText="continue";
     conti.style.backgroundColor="rgb(180,180,180)"
     conti.id="conti";
