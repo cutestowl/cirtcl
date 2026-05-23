@@ -30,6 +30,7 @@ class AudioManager {
         
         // 立即播放
         this.bgmSource.start(0);
+        return Date.now();
     }
 
     // 獲取音樂精確播放秒數 (取代 Date.now() 或 performance.now())
