@@ -2,7 +2,7 @@ function general_ready(unit)
 {
     const screen=document.querySelector('#screen');
 
-    const ready=document.createElement('button');
+    const ready=document.createElement('div');
     ready.style.color="rgb(100,100,100)";
     ready.style.position="absolute";
     ready.style.top="50%";
