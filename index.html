@@ -21,15 +21,6 @@
     <script>
         const Canon_in_D_Major_medium=document.querySelector('#Canon_in_D_Major_medium');
         Canon_in_D_Major_medium.addEventListener('click',()=>{
-            try {
-            const TmpCtx = window.AudioContext || window.webkitAudioContext;
-                if (TmpCtx) {
-                    const tmp = new TmpCtx();
-                    tmp.resume(); // 強制啟用
-                }
-            } catch (e) {
-                console.log("AudioContext 初始化失敗，可能瀏覽器不支援", e);
-            }    
             window.location.href=`game.html?offset=${document.getElementById('offset').value/1000}`;
         })
         const offset=document.querySelector('#offset');
