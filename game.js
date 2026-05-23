@@ -73,7 +73,7 @@ ready.addEventListener('click',()=>
         // 確保解鎖瀏覽器的自動播放限制
         audio.ctx.resume().then(()=>
         {
-            audio.playBGM(); // 播放音樂
+            start_time=audio.playBGM(); // 播放音樂
             gaming=true;
             requestAnimationFrame(game);
         })
@@ -88,8 +88,8 @@ while(Math.abs(ptr_pre*speed*240/bpm/beat)<=315)
 
 function game()
 {
-    // time=(Date.now()-start_time)/1000;
-    time = Math.max(audio.getCurrentTime()-offset,0);
+    time=(Date.now()-start_time)/1000-offset;
+    // time = Math.max(audio.getCurrentTime()-offset,0);
     run_pin(bpm,time,speed);
     if(Math.abs(ptr_pre*speed*240/bpm/beat)<=Math.abs(time*speed)+315)
     {
