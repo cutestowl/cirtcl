@@ -88,9 +88,8 @@ while(Math.abs(ptr_pre*speed*240/bpm/beat)<=315)
 
 function game()
 {
-    console.log(audio);
     // time=(Date.now()-start_time)/1000;
-    time = audio.getCurrentTime()-offset;
+    time = Math.max(audio.getCurrentTime()-offset,0);
     run_pin(bpm,time,speed);
     if(Math.abs(ptr_pre*speed*240/bpm/beat)<=Math.abs(time*speed)+315)
     {
