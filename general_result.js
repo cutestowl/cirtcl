@@ -67,6 +67,6 @@ function general_result(score,results)
     screen.appendChild(conti);
 
     conti.addEventListener('click',()=>{
-      window.location="/index.html";
+      window.location="index.html";
     })
 }
