@@ -3,6 +3,8 @@ const gold_perfect=0.03,perfect=0.075,good=0.15,unit=Math.min(window.innerHeight
 
 const urlparams=new URLSearchParams(window.location.search);
 const offset=parseFloat(urlparams.get('offset'));
+const music=urlparams.get('music');
+const difficulty=urlparams.get('difficulty');
 
 general_main(unit,size);
 general_pin(unit,size);
@@ -10,9 +12,9 @@ general_judgement(unit);
 general_score_display(unit);
 general_combos(unit);
 general_ready(unit);
-await audio.loadAudio('./music/Canon_in_D_Major.mp3');
+await audio.loadAudio(`./music/${music}.mp3`);
 
-chart=await get_chart('./chart/Canon_in_D_Major.ct');
+chart=await get_chart(`./chart/${music}/${difficulty}.ct`);
 chart=chart.replaceAll("{","");
 chart=chart.replaceAll(" ","");
 chart=chart.replaceAll("\n","");

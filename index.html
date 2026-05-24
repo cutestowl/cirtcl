@@ -11,18 +11,22 @@
     <div id="setting" style="display:flex">
         <p>SETTINGS : </p>
         <input id="offset" type="number" placeholder="offset(ms)" min="-500" max="500" style="margin:10px; width:15vw">
-        <a href="about.html" style="position:absolute;right:8vw;margin:10px">about</a>
-        <a href="story.html" style="position:absolute;right:5vw;margin:10px">story</a>
+        <a href="about.html" style="position:absolute;right:8vw;margin:10px;font-size:1vw">about</a>
+        <a href="story.html" style="position:absolute;right:5vw;margin:10px;font-size:1vw">story</a>
     </div>
     <div style="position:absolute;top:20vh;left:5vw;height:auto;width:80vw;padding:5vw;border:black solid 1vh;border-radius:5vh;">
         <div style="display:flex">
-            <p>Canon in D Major by Kevin MacLeod</p><button id="Canon_in_D_Major_medium" style="margin:10px">MEDIUM</button>
+            <p>Canon in D Major</p><button id="Canon_in_D_Major_easy" style="margin:10px">E A S Y</button><button id="Canon_in_D_Major_medium" style="margin:10px">MEDIUM</button>
         </div>
     </div>
     <script>
+        const Canon_in_D_Major_easy=document.querySelector('#Canon_in_D_Major_easy');
         const Canon_in_D_Major_medium=document.querySelector('#Canon_in_D_Major_medium');
+        Canon_in_D_Major_easy.addEventListener('click',()=>{
+            window.location.href=`game.html?offset=${document.getElementById('offset').value/1000}&music=Canon_in_D_Major&difficulty=easy`;
+        })
         Canon_in_D_Major_medium.addEventListener('click',()=>{
-            window.location.href=`game.html?offset=${document.getElementById('offset').value/1000}`;
+            window.location.href=`game.html?offset=${document.getElementById('offset').value/1000}&music=Canon_in_D_Major&difficulty=medium`;
         })
         const offset=document.querySelector('#offset');
         offset.addEventListener('input',()=>{
