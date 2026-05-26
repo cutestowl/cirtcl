@@ -23,7 +23,7 @@ function general_result(score,results)
     const content=document.createElement('pre');
     let rating;
     if(score==1050000)rating="SSS";
-    else if(score>=1030000)reating="SS";
+    else if(score>=1030000)rating="SS";
     else if(score>=1000000)rating="S";
     else if(score>=950000)rating="A";
     else if(score>=880000)rating="B";

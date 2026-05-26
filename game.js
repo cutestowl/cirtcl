@@ -2,7 +2,7 @@ let chart,time,start_time,ptr_now=0,ptr_end=0,ptr_pre=0,data,gaming=false,score=
 const gold_perfect=0.03,perfect=0.075,good=0.15,unit=Math.min(window.innerHeight,window.innerWidth)/100;
 
 const urlparams=new URLSearchParams(window.location.search);
-const offset=parseFloat(urlparams.get('offset'));
+let offset=parseFloat(urlparams.get('offset'));
 const music=urlparams.get('music');
 const difficulty=urlparams.get('difficulty');
 
@@ -26,10 +26,12 @@ const bpm=data[0];
 const beat=data[1];
 const note_number=data[2];
 const speed=data[3];
+offset+=parseFloat(data[4]);
 chart=chart[1].split(',');
 console.log(bpm);
 console.log(chart);
 console.log(beat);
+console.log(offset);
 
 const screen=document.querySelector('#screen');
 const score_display=document.querySelector('#score_display');
@@ -90,7 +92,7 @@ while(Math.abs(ptr_pre*speed*240/bpm/beat)<=315)
 
 function game()
 {
-    time=(Date.now()-start_time)/1000-offset;
+    time=Math.max((Date.now()-start_time)/1000-offset,0);
     // time = Math.max(audio.getCurrentTime()-offset,0);
     run_pin(bpm,time,speed);
     if(Math.abs(ptr_pre*speed*240/bpm/beat)<=Math.abs(time*speed)+315)

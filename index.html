@@ -18,15 +18,22 @@
         <div style="display:flex">
             <p>Canon in D Major</p><button id="Canon_in_D_Major_easy" style="margin:10px">E A S Y</button><button id="Canon_in_D_Major_medium" style="margin:10px">MEDIUM</button>
         </div>
+        <div style="display:flex">
+            <p>Sonata No. 11 in A major-III.</p><button id="z" style="margin:10px">H A R D</button>
+        </div>
     </div>
     <script>
         const Canon_in_D_Major_easy=document.querySelector('#Canon_in_D_Major_easy');
         const Canon_in_D_Major_medium=document.querySelector('#Canon_in_D_Major_medium');
+        const Sonata_No_11_in_A_major_III_hard=document.querySelector('#z'); 
         Canon_in_D_Major_easy.addEventListener('click',()=>{
             window.location.href=`game.html?offset=${document.getElementById('offset').value/1000}&music=Canon_in_D_Major&difficulty=easy`;
         })
         Canon_in_D_Major_medium.addEventListener('click',()=>{
             window.location.href=`game.html?offset=${document.getElementById('offset').value/1000}&music=Canon_in_D_Major&difficulty=medium`;
+        })
+        Sonata_No_11_in_A_major_III_hard.addEventListener('click',()=>{
+            window.location.href=`game.html?offset=${document.getElementById('offset').value/1000}&music=Sonata_No._11_in_A_major-III&difficulty=hard`;
         })
         const offset=document.querySelector('#offset');
         offset.addEventListener('input',()=>{

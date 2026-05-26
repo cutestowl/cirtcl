@@ -30,6 +30,7 @@ class AudioManager {
         
         // 立即播放
         this.bgmSource.start(0);
+        console.log(Date.now());
         return Date.now();
     }
 
