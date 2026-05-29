@@ -7,12 +7,12 @@
     <title>cirtɔl</title>
 </head>
 <body>
-    <img src="image/icon2.png" style="position:absolute;top:0;right:0;height:10vh;width:10vh">
-    <div id="setting" style="display:flex">
+    <img src="image/icon2.png" style="position:absolute;top:0;right:0;height:5vw;width:5vw">
+    <div id="setting" style="display:flex;gap:2vw;margin:5vh">
         <p>SETTINGS : </p>
-        <input id="offset" type="number" placeholder="offset(ms)" min="-500" max="500" style="margin:10px; width:15vw">
-        <a href="about.html" style="position:absolute;right:8vw;margin:10px;font-size:1vw">about</a>
-        <a href="story.html" style="position:absolute;right:5vw;margin:10px;font-size:1vw">story</a>
+        <p>offset</p><input id="offset" type="number" placeholder="(ms)" min="-500" max="500" style="width:15vw">
+        <a href="about.html" style="position:absolute;right:12vw;font-size:1.5vw">about</a>
+        <a href="story.html" style="position:absolute;right:7vw;font-size:1.5vw">story</a>
     </div>
     <div style="position:absolute;top:20vh;left:5vw;height:auto;width:80vw;padding:5vw;border:black solid 1vh;border-radius:5vh;">
         <div style="display:flex">
@@ -35,11 +35,14 @@
         Sonata_No_11_in_A_major_III_hard.addEventListener('click',()=>{
             window.location.href=`game.html?offset=${document.getElementById('offset').value/1000}&music=Sonata_No._11_in_A_major-III&difficulty=hard`;
         })
+
         const offset=document.querySelector('#offset');
+        offset.value=parseInt(localStorage.getItem('offset'));
         offset.addEventListener('input',()=>{
             let val=offset.value;
             if(val>500)offset.value=500;
             if(val<-500)offset.value=-500;
+            localStorage.setItem('offset',String(offset.value));
         })
     </script>
 </body>

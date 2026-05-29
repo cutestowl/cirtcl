@@ -117,7 +117,8 @@ function game()
         {
             remove_game();
             console.log(results);
-            general_result(score,results);
+            localStorage.setItem(`${music}_${difficulty}`,String(Math.round(score)));
+            general_result(score,results,`${music}_${difficulty}`);
         },3000);    
     }
     if(ptr_end<=(time+0.3)*bpm*beat/240)ptr_end+=1;

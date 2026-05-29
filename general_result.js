@@ -1,4 +1,4 @@
-function general_result(score,results)
+function general_result(score,results,chart)
 {
     const screen=document.querySelector('#body');
 
@@ -20,7 +20,9 @@ function general_result(score,results)
 
     screen.appendChild(title);
 
-    const content=document.createElement('pre');
+    const content=document.createElement('div');
+    const contentl=document.createElement('pre');
+    const contentr=document.createElement('pre');
     let rating;
     if(score==1050000)rating="SSS";
     else if(score>=1030000)rating="SS";
@@ -29,39 +31,55 @@ function general_result(score,results)
     else if(score>=880000)rating="B";
     else if(score>=700000)rating="C";
     else rating="F";
-    content.innerText=
+    contentl.innerText=
 `     s c o r e     : ${Math.round(score)}
+
+
+   high    score   : ${localStorage.getItem(chart)}
+
 
   r  a  t  i  n  g : ${rating}
 
+
   m a x  c o m b o : ${results[7]}
+
 
   h i t   r a t e  : ${Math.round((results[0]+results[1]+results[2])*10000/(results[0]+results[1]+results[2]+results[3]))/100}%
 
+
    perfect  rate   : ${Math.round((results[0]+results[1])*10000/(results[0]+results[1]+results[2]+results[3]))/100}%
 
- gold perfect rate : ${Math.round((results[0])*10000/(results[0]+results[1]+results[2]+results[3]))/100}%
- 
-   gold  perfect   : ${results[0]}
+
+ gold perfect rate : ${Math.round((results[0])*10000/(results[0]+results[1]+results[2]+results[3]))/100}%`
+    contentr.innerText=
+`   gold  perfect   : ${results[0]}
+
 
    p e r f e c t   : ${results[1]}
 
+
       g o o d      : ${results[2]}
+
 
       m i s s      : ${results[3]}
 
+
      e a r l y     : ${results[4]}
+
 
       l a t e      : ${results[5]}`
 
     content.style.position="absolute";
-    content.style.top="12vh";
+    content.style.top="17vh";
     content.style.fontSize="2.5vh";
     content.style.border="0.3vh solid black";
-    content.style.padding="5vh 3vh 3vh 3vh";
+    content.style.padding="5vh";
     content.style.borderRadius="10vh";
+    content.style.display="flex";
+    content.style.gap="5vw";
     content.id="content";
-
+    content.appendChild(contentl);
+    content.appendChild(contentr);
     screen.appendChild(content);
 
     const conti=document.createElement('button');
