@@ -6,8 +6,8 @@ function general_ready(unit)
     ready.style.backgroundColor="rgba(0, 0, 0, 0)"
     ready.style.color="rgb(100,100,100)";
     ready.style.position="absolute";
-    ready.style.top="50%";
-    ready.style.left="50%";
+    ready.style.top="50vh";
+    ready.style.left="50vw";
     ready.id="ready";
     ready.style.height="97vh";
     ready.style.width="97vw";

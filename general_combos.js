@@ -6,7 +6,7 @@ function general_combos(unit)
     combos.style.color="rgb(72, 72, 72)";
     combos.style.position="absolute";
     combos.style.top="0";
-    combos.style.left="50%";
+    combos.style.left="50vw";
     combos.style.padding="1vh";
     combos.id="combos";
     combos.style.fontSize=`${4*unit}px`;
