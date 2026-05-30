@@ -117,7 +117,7 @@ function game()
         {
             remove_game();
             console.log(results);
-            localStorage.setItem(`${music}_${difficulty}`,String(Math.round(score)));
+            if(localStorage.getItem(`${music}_${difficulty}`)==null||parseInt(localStorage.getItem(`${music}_${difficulty}`)<Math.round(score)))localStorage.setItem(`${music}_${difficulty}`,Math.round(score));
             general_result(score,results,`${music}_${difficulty}`);
         },3000);    
     }
